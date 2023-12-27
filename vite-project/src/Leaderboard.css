@@ -1,0 +1,48 @@
+*{
+    padding: 0px;
+  margin: 0px;
+}
+body {
+    margin: 0; 
+    font-family: 'Arial', sans-serif; 
+  }
+  
+  #title {
+    text-align: left;
+    font-size: 5rem;
+    margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .leaderboard {
+    width: auto;
+    height: auto;
+    margin: 0 0 0 20rem;
+    
+    
+  }
+  
+  .leaderboard-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+  }
+  
+  .bar {
+    height: 25px;
+    background-color: #3498db;
+    margin-right: 8px;
+    border-radius: 10px 0px 10px 0;
+    position: relative;
+  }
+
+  .score{
+    font: bold;
+    margin-right: 4px;
+  }
+  .user-image img {
+    width: 20px; 
+    height: 20px; 
+    border-radius: 50%;
+    margin-right: 8px;
+  }
