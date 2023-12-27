@@ -21,12 +21,12 @@ function Name() {
                 value={goatName} // Display the current goat name
                 onChange={handleChange} // Capture input changes
             />
-            <Link to="/question"><button className='rounded-full w-28 h-[40px] text-white font-semibold flex justify-center items-center mt-10 bg-[#2c2c2f]'>Join Quiz</button></Link>
+            <Link to={`/question?${new URLSearchParams({ name: goatName })}`} o="/question"><button className='rounded-full w-28 h-[40px] text-white font-semibold flex justify-center items-center mt-10 bg-[#2c2c2f]'>Join Quiz</button></Link>
             <div className='mt-auto flex flex-col items-center'>
                 <span>Create your own Menti at <a href="mentimeter.com" className='font underline-offset-1'>mentimeter.com</a></span>
                 <span className='font-bold mt-5 mb-3'>Terms</span>
             </div>
-        </div>
+        </div >
     )
 }
 
