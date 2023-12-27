@@ -1,5 +1,3 @@
-import React from 'react'
-
 type UserData = {
     username: string;
     profilePicture?: string;
@@ -59,6 +57,25 @@ type UserData = {
             className=" h-full w-full z-10 bg-gradient-to-b from-transparent via-transparent to-black fixed"
           ></div>
           LEADERBOARD
+          <div className="w-full h-1/3 flex justify-center items-center mt-5">
+            {usersData &&
+              usersData.slice(0, 3).map((data, index) => {
+                return (
+                  <div key={index}>
+                    <img
+                      className="rounded-full p-0.5 text-center"
+                      src={
+                        data.profilePicture && isValidUrl(data.profilePicture)
+                          ? data.profilePicture
+                          : "https://templates.joomla-monster.com/joomla30/jm-news-portal/components/com_djclassifieds/assets/images/default_profile.png"
+                      }
+                      alt="Profile picture"
+                    />
+                    {data.username}	&#40;{data.points}P&#41;
+                  </div>
+                );
+              })}
+          </div>
           {usersData &&
             usersData.map((data, index) => {
               return (
@@ -84,6 +101,7 @@ type UserData = {
                         ? data.profilePicture
                         : "https://templates.joomla-monster.com/joomla30/jm-news-portal/components/com_djclassifieds/assets/images/default_profile.png"
                     }
+                    alt="Profile picture"
                   />
                 </div>
               );
