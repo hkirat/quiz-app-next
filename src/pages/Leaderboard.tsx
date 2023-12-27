@@ -6,7 +6,7 @@ function Leaderboard() {
 
     return (
         <div className="bg-black text-white p-8 rounded-md">
-            <h1 className="text-2xl">Leaderboard Results</h1>
+            <h1 className="text-2xl text-center my-4">Leaderboard Results</h1>
             <div className="overflow-y-scroll h-96">
                 {leaderboardData.map((el, index) => (
                     <Card

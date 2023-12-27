@@ -9,7 +9,7 @@ type props = {
 
 function Card({ sno, name, points, image }: props) {
     return (
-        <div className="flex justify-between items-center w-96">
+        <div className="flex justify-between items-center w-96 bg-white mb-4 rounded-md text-black px-4">
             <div className="flex gap-4 my-5 w-5/12">
                 <p>{sno}.</p>
                 <h3>{name}</h3>
