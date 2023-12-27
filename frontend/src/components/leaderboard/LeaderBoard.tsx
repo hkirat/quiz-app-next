@@ -10,7 +10,7 @@ export function LeaderBoard({leaderboardData}: {
 }) {
 
     return (
-        <div className="bg-opacity-20 bg-white backdrop-blur-5 border border-opacity-30 border-solid border-white p-6 rounded-lg shadow-md">
+        <div className="bg-[#242424] min-h-[100vh] backdrop-blur-5 border border-opacity-30 border-solid border-white p-6 rounded-lg shadow-md">
             <h1 className="text-2xl text-center my-4 text-white">
                 Leaderboard Results 🚀
             </h1>

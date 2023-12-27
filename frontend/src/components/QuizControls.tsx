@@ -1,11 +1,12 @@
+import QButton from "./Common/QButton"
 
 export const QuizControls = ({socket, roomId}: {socket: any, roomId: string}) => {
-    return <div>
+    return <div className='w-[80vw] mx-auto h-full gap-4 flex items-center justify-center my-20'>
         Quiz controls
-        <button onClick={() => {
+        <QButton text="Next problem" variant="dark" onClick={() => {
             socket.emit("next", {
                 roomId
             })
-        }}>Next problem</button>
+        }} />
     </div>
 }
