@@ -11,7 +11,10 @@
   "dependencies": {
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.0.4"
+    "next": "14.0.4",
+    "@headlessui/react": "^1.7.17",
+    "@heroicons/react": "^2.1.1",
+    "@tailwindcss/forms": "^0.5.7"
   },
   "devDependencies": {
     "typescript": "^5",
