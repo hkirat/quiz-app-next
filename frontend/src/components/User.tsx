@@ -2,25 +2,39 @@ import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import { CurrentQuestion } from "./CurrentQuestion";
 import { LeaderBoard } from "./Leaderboard";
+import QInput from "./Common/QInput";
+import QButton from "./Common/QButton";
 
 export const User = () => {
-    const [name, setName] = useState("");
+    const [name, setName] = useState<string>("");
     const [submitted, setSubmitted] = useState(false);
     if (!submitted) {
-        return <div>
-            Name - <input type="text" placeholder="name" onChange={(e) => {
-                setName(e.target.value)
-            }}/>
-            <button onClick={() => {
-                setSubmitted(true);
-            }}>Submit</button>
-        </div>
+        return <div className='w-full h-full flex flex-col items-center justify-cente'>
+                    <div className='mt-20 mb-10 text-xl font-semibold'>100x Devs</div>
+                    <div className='flex flex-col items-center gap-3'>
+                        <p className='text-3xl font-medium'>Enter your Name</p>
+                        <p className='text-sm text-slate-500 text-center'>
+                            Enter the name you want to be displayed on the leaderboard
+                        </p>
+                    </div>
+                    <QInput
+                        type='text'
+                        placeholder='Enter your name'
+                        styleClass='w-3/4 md:w-1/4 h-[40px] mt-8 mb-10'
+                        onChange={(e) => {
+                            setName(e.target.value)
+                        }}
+                    />
+                    <QButton text='Submit' variant='dark' onClick={() => {
+                        setSubmitted(true);
+                    }}/>
+                </div>
     }
 
     return <UserLoggedin name={name} />
 }
 
-export const UserLoggedin = ({name}) => {
+export const UserLoggedin = ({name}: any) => {
     const searchParams = new URLSearchParams(document.location.search)
     const [socket, setSocket] = useState<null | any>(null);
     const roomId = searchParams.get("roomId");
