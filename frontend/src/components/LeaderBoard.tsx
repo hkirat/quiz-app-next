@@ -5,21 +5,21 @@ type UserData = {
   };
   
   type LeaderBoardProps = {
-    usersData: UserData[];
+    winner: UserData[];
   };
   
-  const LeaderBoard: React.FC<LeaderBoardProps> = ({ usersData }) => {
-    const highestPoints = usersData.reduce(
+  const LeaderBoard: React.FC<LeaderBoardProps> = ({ winner }) => {
+    const highestPoints = winner.reduce(
       (maxUser, currentUser) =>
         currentUser.points > maxUser.points ? currentUser : maxUser,
-      usersData[0]
+      winner[0]
     ).points;
   
     function setZIndexToZero(value: boolean) {
       const element = document.getElementById("foreground");
       if (value) {
         if (element) {
-          element.style.zIndex = "0";
+          element.style.zIndex = "-10";
         } else {
           console.error(`Element with ID ${"foreground"} not found.`);
         }
@@ -58,8 +58,8 @@ type UserData = {
           ></div>
           LEADERBOARD
           <div className="w-full h-1/3 flex justify-center items-center my-5">
-            {usersData &&
-              usersData.sort((a, b) => b.points - a.points).slice(0, 3).map((data, index) => {
+            {winner &&
+              winner.sort((a, b) => b.points - a.points).slice(0, 3).map((data, index) => {
                 return (
                   <div key={index}>
                     <img
@@ -76,8 +76,8 @@ type UserData = {
                 );
               })}
           </div>
-          {usersData &&
-            usersData.sort((a, b) => b.points - a.points).map((data, index) => {
+          {winner &&
+            winner.sort((a, b) => b.points - a.points).map((data, index) => {
               return (
                 <div
                   key={index}
