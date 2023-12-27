@@ -1,6 +1,7 @@
 type ButtonProps = {
   text: string;
   styleClass?: string;
+  disabled?: boolean;
   variant?: 'primary' | 'danger' | 'success' | 'dark';
   onClick?: (e: any) => void;
 };
@@ -13,10 +14,12 @@ const QButton = ({
   text = '',
   styleClass = '',
   variant = 'primary',
+  disabled=false,
   onClick,
 }: ButtonProps) => {
   return (
     <button
+      disabled={disabled}
       type='button'
       className={classNames(
         variant === 'primary'

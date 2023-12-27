@@ -11,7 +11,7 @@ export const User = () => {
     const [submitted, setSubmitted] = useState(false);
     const [code, setCode] = useState("");
     if (!submitted) {
-        return <div className='w-full h-full flex flex-col items-center justify-cente'>
+        return <div className='w-full h-full flex flex-col items-center justify-center'>
                 <div className='mt-20 mb-10 text-xl font-semibold'>100x Devs</div>
                 <div className='flex flex-col items-center gap-3'>
                     <p className='text-3xl font-medium'>Enter your Name & Code</p>
@@ -20,17 +20,17 @@ export const User = () => {
                     </p>
                 </div>
                 <QInput
-                    type='text'
-                    placeholder='Enter your name'
-                    styleClass='w-3/4 md:w-1/4 h-[40px] mt-8 mb-10'
+                    type='number'
+                    placeholder='Enter your Code'
+                    styleClass='w-3/4 md:w-1/4 h-[40px] mt-8 mb-6'
                     onChange={(e) => {
                         setCode(e.target.value)
                     }}
                 />
                 <QInput
-                    placeholder="Your name"
+                    placeholder="Enter your name"
                     type="text"
-                    styleClass='w-3/4 md:w-1/4 h-[40px]'
+                    styleClass='w-3/4 md:w-1/4 h-[40px] mb-10'
                     onChange={(e) => {
                         setName(e.target.value)
                     }}
@@ -89,8 +89,8 @@ export const UserLoggedin = ({name, code}:any) => {
     }, []);
 
     if (currentState === "not_started") {
-        return <div>
-            This quiz hasnt started yet
+        return <div className='w-full h-full flex flex-col items-center justify-center'>
+            <span className='mt-10'> This quiz hasnt started yet </span>
         </div>
     }
     if (currentState === "question") {
@@ -108,9 +108,8 @@ export const UserLoggedin = ({name, code}:any) => {
         }))} />
     }
 
-    return <div>
-        <br/>
-        Quiz has ended
+    return <div className='w-full h-full flex flex-col items-center justify-center'>
+        <span className='mt-10'>Quiz has ended</span>
         {currentState}
     </div>
 }

@@ -1,4 +1,6 @@
 import { useState } from "react"
+import QInput from "./Common/QInput";
+import QButton from "./Common/QButton";
 
 export const CreateProblem = ({socket, roomId}: {socket: any; roomId: string;}) => {
     const [title, setTitle] = useState("");
@@ -18,23 +20,22 @@ export const CreateProblem = ({socket, roomId}: {socket: any; roomId: string;}) 
         title: ""
     }])
 
-    return <div>
-        Create problem
-        Title = <input type="text" onChange={(e) => {
+    return <div className='w-[80vw] mx-auto h-full flex flex-col items-center justify-center my-10'>
+        Create problem Title <QInput type="text" onChange={(e) => {
             setTitle(e.target.value)
-        }}></input>
+        }} />
         <br /><br />
-        Description - <input type="text" onChange={(e) => {
+        Description <QInput type="text" onChange={(e) => {
             setDescription(e.target.value)
-        }}></input>
+        }}/>
         <br />
         
-        {[0, 1, 2, 3].map(optionId => <div> 
+        {[0, 1, 2, 3].map(optionId => <div className="w-full flex gap-4 space-y-2 items-center justify-between"> 
             <input type="radio" checked={optionId === answer} onChange={() => {
                 setAnswer(optionId)
-            }}></input>
-            Option {optionId}
-            <input type="text" onChange={(e) => {
+            }} />
+            <p>Option {optionId}</p>
+            <QInput type="text" styleClass="max-w-[80%]" onChange={(e) => {
                 setOptions(options => options.map(x => {
                     if (x.id === optionId) {
                         return {
@@ -44,11 +45,11 @@ export const CreateProblem = ({socket, roomId}: {socket: any; roomId: string;}) 
                     }
                     return x;
                 }))
-            }}></input>
+            }} />
         <br />
         </div>)}
  
-        <button onClick={() => {
+        <QButton text="Add problem" styleClass='rounded-lg mt-10' onClick={() => {
             socket.emit("createProblem", {
                 roomId,
                 problem: {
@@ -58,7 +59,7 @@ export const CreateProblem = ({socket, roomId}: {socket: any; roomId: string;}) 
                     answer,
                 }
             });
-        }}>Add problem</button>       
+        }} />
         
     </div>
 }

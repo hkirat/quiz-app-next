@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import QInput from './Common/QInput';
+import QButton from './Common/QButton';
 
 /**
  Simple View with title and answers - $25
@@ -25,14 +27,15 @@ export function Quiz({quizData, socket, userId, problemId, roomId}: {
       <div className="flex w-full justify-center">
         <div className="">
             <SingleQuiz
-                choices={quizData.options.map(x => x.title)}
+                choices={quizData.options.map(x => x?.title)}
                 title={quizData.title}
                 imageURL={""}
                 setSelected={setSubmission}
             />
           <div className="flex justify-between w-full mt-4 text-white">
-            <button
-              className="py-3 px-10 bg-indigo-600 rounded-lg mx-8"
+            <QButton
+              text="Submit"
+              styleClass="py-3 px-10 rounded-lg mx-8"
               disabled={submitted}
               onClick={() => {
                 setSubmitted(true);
@@ -43,9 +46,7 @@ export function Quiz({quizData, socket, userId, problemId, roomId}: {
                     roomId,
                 })
               }}
-            >
-              Submit
-            </button>
+            />
           </div>
 
         </div>
@@ -80,11 +81,11 @@ function SingleQuiz({
               key={index}
               className="flex items-center w-full py-4 pl-5 m-2 ml-0 space-x-2 border-2 cursor-pointer border-white/10 rounded-xl bg-white/5"
             >
-              <input
+              <QInput
                 type="radio"
                 name="option"
                 value={choice}
-                className="w-6 h-6 bg-black"
+                // styleClass="w-6 h-6 bg-black"
                 onClick={() => {
                     setSelected(index)
                 }}
