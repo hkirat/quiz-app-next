@@ -120,15 +120,19 @@ export class Quiz {
         return id;
     }
     submit(userId: string, roomId: string, problemId: string, submission: AllowedSubmissions) {
+        console.log("userId");
+        console.log(userId);
         const problem = this.problems.find(x => x.id == problemId);
         const user = this.users.find(x => x.id === userId);
  
         if (!problem || !user) {
+            console.log("problem or user not found")
             return;
         }
         const existingSubmission = problem.submissions.find(x => x.userId === userId);
  
         if (existingSubmission) {
+            console.log("existn submissions")
             return;
         }
  
@@ -138,7 +142,7 @@ export class Quiz {
             isCorrect: problem.answer === submission,
             optionSelected: submission
         });
-        user.points += 1000 - 500 * (new Date().getTime() - problem.startTime) / PROBLEM_TIME_S;
+        user.points += (1000 - (500 * (new Date().getTime() - problem.startTime) / (PROBLEM_TIME_S * 1000)));
     }
 
     getLeaderboard() {
