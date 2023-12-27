@@ -1,60 +1,71 @@
 import { Nav } from '.';
 import { mockLeaderboardData } from '../mocks/leaderboard-mock';
-
-import './leaderboard.css';
+import Chart from 'chart.js/auto';
+import { CategoryScale } from 'chart.js';
+import { Bar } from 'react-chartjs-2';
+import { useState } from 'react';
 
 export function Leaderboard() {
   return (
     <div className="h-screen">
       <Nav />
-      <div>
-        <h1 className="text-5xl text-center">Leaderboard</h1>
-        <LeaderboardChart data={mockLeaderboardData.data} />
+      <div className="max-w-[1000px]">
+        <h1 className="text-5xl">Leaderboard</h1>
+        <HorizontalChart playersData={mockLeaderboardData.data} />
       </div>
     </div>
   );
 }
 
-// winners: {username: string, profilePicture?: string, points: number}[] => will be sorted
+Chart.register(CategoryScale);
 type LeaderboardChartType = {
-  data: {
+  playersData: {
     username: string;
     profilePicture: string;
     points: number;
   }[];
 };
 
-function LeaderboardChart({ data }: LeaderboardChartType) {
-  console.log(data);
+function HorizontalChart({ playersData }: LeaderboardChartType) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [chartData, _] = useState({
+    labels: playersData.map((data) => data.username),
+    datasets: [
+      {
+        label: 'Points',
+        data: playersData.map((data) => data.points),
+        backgroundColor: [
+          'rgba(75,192,192,1)',
+          '#ecf0f1',
+          '#50AF95',
+          '#f3ba2f',
+          '#2a71d0',
+        ],
+        borderColor: 'black',
+        borderWidth: 2,
+      },
+    ],
+  });
+
   return (
-    <>
-      <div>
-        {data.map((score, i) => (
-          <ScoreItem
-            key={i}
-            username={score.username}
-            score={score.points}
-            profilePicture={score.profilePicture}
-          />
-        ))}
-      </div>
-    </>
+    <Bar
+      data={chartData}
+      options={{
+        responsive: true,
+        indexAxis: 'y',
+        layout: {
+          padding: 0,
+        },
+        plugins: {
+          title: {
+            display: true,
+            text: 'Scores of all players',
+          },
+          legend: {
+            display: false,
+          },
+        },
+      }}
+    />
   );
 }
-
-type ScoreItemProps = {
-  username: string;
-  score: number;
-  profilePicture: string;
-};
-const ScoreItem = ({ username, score, profilePicture }: ScoreItemProps) => {
-  return (
-    <div className="scoreItem">
-      <span className="userEmail">{username}</span>
-      <span className="userScore">{score}</span>
-      <img height={20} className="h-10" src={profilePicture} alt="pfp" />
-    </div>
-  );
-};
-
-export default ScoreItem;
