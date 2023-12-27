@@ -72,7 +72,7 @@ export class Quiz {
         this.currentState = "question"
         problem.startTime = new Date().getTime();
         problem.submissions = [];
-        IoManager.getIo().emit("CHANGE_PROBLEM", {
+        IoManager.getIo().to(this.roomId).emit("problem", {
             problem
         })
         // Todo: clear this if function moves ahead
@@ -94,6 +94,7 @@ export class Quiz {
         if (problem) {
             this.setActiveProblem(problem);
         } else {
+            this.activeProblem--;
             // send final results here
             // IoManager.getIo().emit("QUIZ_END", {
             //     problem
