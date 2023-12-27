@@ -44,7 +44,7 @@ type UserData = {
     return (
       <>
         <div
-          className=" relative w-full h-full bg-gray-950 overflow-x-hidden overflow-y-scroll p-5 text-3xl font-serif text-center"
+          className=" w-auto h-auto bg-gray-950 overflow-x-hidden overflow-y-scroll p-5 text-3xl font-serif text-center"
           onMouseEnter={() => {
             setZIndexToZero(true);
           }}
