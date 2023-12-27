@@ -6,7 +6,7 @@ import logo from "../logo.png";
 import Image from "next/image";
 import toast, { Toaster } from "react-hot-toast";
 
-function page() {
+function Page() {
   const [code, setCode] = useState<string>("");
   const [close, setClose] = useState<boolean>(false);
 
@@ -68,4 +68,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
