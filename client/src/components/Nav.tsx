@@ -1,6 +1,9 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export function Nav() {
+  const { pathname } = useLocation();
+  console.log(location.pathname);
+
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -41,7 +44,11 @@ export function Nav() {
             <li>
               <Link
                 to="/"
-                className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                className={`block py-2 px-3   rounded md:bg-transparent md:p-0 ${
+                  pathname === '/'
+                    ? 'bg-blue-700 md:text-blue-700 md:dark:text-blue-500 dark:text-white text-white'
+                    : 'text-white md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent'
+                }`}
                 aria-current="page"
               >
                 Home
@@ -50,7 +57,11 @@ export function Nav() {
             <li>
               <Link
                 to="/quiz"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                className={`block py-2 px-3   rounded md:bg-transparent md:p-0 ${
+                  pathname === '/quiz'
+                    ? 'bg-blue-700 md:text-blue-700 md:dark:text-blue-500 dark:text-white text-white'
+                    : 'text-white md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent'
+                }`}
               >
                 Quiz
               </Link>
@@ -58,7 +69,11 @@ export function Nav() {
             <li>
               <Link
                 to="/join"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                className={`block py-2 px-3   rounded md:bg-transparent md:p-0 ${
+                  pathname === '/join'
+                    ? 'bg-blue-700 md:text-blue-700 md:dark:text-blue-500 dark:text-white text-white'
+                    : 'text-white md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent'
+                }`}
               >
                 Join
               </Link>
@@ -66,7 +81,11 @@ export function Nav() {
             <li>
               <Link
                 to="/leaderboard"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                className={`block py-2 px-3   rounded md:bg-transparent md:p-0 ${
+                  pathname === '/leaderboard'
+                    ? 'bg-blue-700 md:text-blue-700 md:dark:text-blue-500 dark:text-white text-white'
+                    : 'text-white md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent'
+                }`}
               >
                 Leaderboard
               </Link>
