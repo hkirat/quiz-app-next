@@ -9,17 +9,20 @@ function Question() {
         {
             question: 'What is sum of 1 and 2',
             choices: ['3', '2', '1'],
-            correct: 0
+            correct: 0,
+            image: false
         },
         {
             question: 'How is the price of 100xDevs',
             choices: ['too high', 'high', 'will use pirated'],
-            correct: 2
+            correct: 2,
+            image: false,
         },
         {
             question: 'How to tackle all this learning at same time?',
             choices: ['dont know', 'kirat already tought you', 'I am aalsi'],
-            correct: 0
+            correct: 0,
+            image: 'https://plus.unsplash.com/premium_photo-1669324357471-e33e71e3f3d8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
         }
     ]
 
@@ -73,10 +76,16 @@ function Question() {
                     <button className='rounded-full w-20 h-[40px] text-white font-semibold flex justify-center items-center mt-10 bg-[#2c2c2f]' onClick={() => setShowQuestion(true)}>Next</button>
                 </> :
 
+
                 (
 
                     currentQuestionIndex < demoQuestions.length && (
                         <div className='mt-3 text-2xl'>
+                            <span className='text-xs text-gray-400'>wait for 5 seconds!</span><br />
+                            {console.log(demoQuestions[currentQuestionIndex].image)}
+                            {demoQuestions[currentQuestionIndex].image &&
+                                <img src={demoQuestions[currentQuestionIndex].image} alt="" className='w-[300px]' />
+                            }
                             <span>{demoQuestions[currentQuestionIndex].question}</span><br />
                             {
                                 demoQuestions[currentQuestionIndex].choices.map((choice) => (
