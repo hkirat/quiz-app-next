@@ -31,7 +31,7 @@ function Leaderboard() {
         Mentimeter
       </a>
       <h1 className="my-8 text-8xl font-semibold">Leaderboard</h1>
-      <div className="ml-[20rem]">
+      <div className="mx-auto w-max">
         {data
           .sort((a, b) => b.val - a.val)
           .slice(0, 10)
@@ -41,6 +41,7 @@ function Leaderboard() {
                 {item.val} p
               </h3>
               <div
+                className="animate-slide"
                 style={{
                   height: "3rem",
                   width: item.val * 0.75,
