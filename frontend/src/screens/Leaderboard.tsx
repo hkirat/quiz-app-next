@@ -32,21 +32,24 @@ function Leaderboard() {
       </a>
       <h1 className="my-8 text-8xl font-semibold">Leaderboard</h1>
       <div className="ml-[20rem]">
-        {data.map((item) => (
-          <div className="flex mb-2 gap-4 items-center">
-            <h3 className="font-semibold text-2xl w-[100px] text-right">
-              {item.val} p
-            </h3>
-            <div
-              style={{
-                height: "2rem",
-                width: item.val * 0.75,
-                backgroundColor: getRandomRgbColor(),
-              }}
-            ></div>
-            <h3 className="text-2xl">{item.name}</h3>
-          </div>
-        ))}
+        {data
+          .sort((a, b) => b.val - a.val)
+          .slice(0, 10)
+          .map((item) => (
+            <div className="flex mb-2 gap-4 items-center">
+              <h3 className="font-semibold text-2xl w-[100px] text-right">
+                {item.val} p
+              </h3>
+              <div
+                style={{
+                  height: "3rem",
+                  width: item.val * 0.75,
+                  backgroundColor: getRandomRgbColor(),
+                }}
+              ></div>
+              <h3 className="text-2xl">{item.name}</h3>
+            </div>
+          ))}
       </div>
       <div className="w-full absolute bottom-0 flex justify-between">
         <div>
