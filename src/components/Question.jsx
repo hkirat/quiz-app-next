@@ -49,7 +49,7 @@ function Question() {
             return () => {
                 clearInterval(intervalId);
                 // Clear the timeout (optional for cleanup)
-                clearTimeout(timeoutId);
+                clearTimeout();
             };
         }
     }, [showQuestion]);
@@ -112,7 +112,10 @@ function Question() {
             }
             {
                 renderAfterEffect && (
-                    <span className='text-xl mt-4'>{name} your total Score is {totalScore}</span>
+                    <>
+                        <span className='text-xl mt-4'>{name} your total Score is {totalScore}</span>
+                        <Link to="/leaderboard"><button className='rounded-full w-40 h-[40px] text-white font-semibold flex justify-center items-center mt-10 bg-[#2c2c2f]'>See Leaderboard</button></Link>
+                    </>
                 )
             }
         </div >
