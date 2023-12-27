@@ -26,8 +26,8 @@ function Question() {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [showQuestion, setShowQuestion] = useState(false);
     const [selectedChoice, setSelectedChoice] = useState(null);
-
-
+    const [totalScore, setTotalScore] = useState(0)
+    const [renderAfterEffect, setRenderAfterEffect] = useState(false);
     const [searchParams] = useSearchParams();
     const name = searchParams.get('name');
 
@@ -37,12 +37,25 @@ function Question() {
                 setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
             }, 5000); // Delay of 5 seconds
 
-            // Cleanup function to clear the interval when the component unmounts
-            return () => clearInterval(intervalId);
+
+            // Set the timeout to trigger rendering after 15 seconds
+            setTimeout(() => {
+                setRenderAfterEffect(true);
+            }, 15000);
+
+            return () => {
+                clearInterval(intervalId);
+                // Clear the timeout (optional for cleanup)
+                clearTimeout(timeoutId);
+            };
         }
     }, [showQuestion]);
     const handleChange = (event) => {
         setSelectedChoice(event.target.value);
+        console.log(event.target.value)
+        if (event.target.value === demoQuestions[currentQuestionIndex].choices[demoQuestions[currentQuestionIndex].correct])
+            setTotalScore(totalScore + 1)
+        console.log(totalScore)
     };
     return (
         <div className='w-screen h-screen flex flex-col items-center'>
@@ -67,14 +80,15 @@ function Question() {
                             <span>{demoQuestions[currentQuestionIndex].question}</span><br />
                             {
                                 demoQuestions[currentQuestionIndex].choices.map((choice) => (
-                                    <label key={choice} className='mt-3'>
-                                        <input
+                                    <label key={choice} className='mt-3 w-[200px] border-blue-300 h-[40px]'>
+                                        < input
                                             type="radio"
                                             name="choice"
                                             value={choice}
                                             id={choice}
                                             checked={selectedChoice === choice}
                                             onChange={handleChange}
+
                                         />
 
                                         {choice}
@@ -85,6 +99,11 @@ function Question() {
                         </div>
                     )
 
+                )
+            }
+            {
+                renderAfterEffect && (
+                    <span className='text-xl mt-4'>{name} your total Score is {totalScore}</span>
                 )
             }
         </div >
