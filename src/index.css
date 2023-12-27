@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+input {
+
+  /* Focus effect */
+  &:focus {
+    border-color: blue;
+    /* Adjust as needed */
+    outline: none;
+    /* Remove default outline */
+  }
+
+  /* Hover effect (optional) */
+  &:hover {
+    background-color: #f5f5f5;
+    /* Adjust as needed */
+  }
+}
