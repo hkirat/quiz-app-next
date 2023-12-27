@@ -17,3 +17,5 @@
     winners: {username: string, profilePicture?: string, points: number}[] => will be sorted
  - Join the course view - $10
  Stack - React components using tailwind
+
+- User name and photo Landing Page on Repit : [https://replit.com/join/ykpajftrog-anshumanatrey](https://replit.com/join/ykpajftrog-anshumanatrey)
