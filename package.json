@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/hkirat/quiz-app-next/issues"
   },
-  "homepage": "https://github.com/hkirat/quiz-app-next#readme"
+  "homepage": "https://github.com/hkirat/quiz-app-next#readme",
+  "dependencies": {
+    "@tailwindcss/forms": "^0.5.7"
+  }
 }
