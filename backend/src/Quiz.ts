@@ -141,7 +141,7 @@ export class Quiz {
     }
 
     getLeaderboard() {
-        return this.users.sort((a, b) => a.points < b.points ? 1 : -1).splice(0, 20);;
+        return this.users.sort((a, b) => a.points < b.points ? 1 : -1).slice(0, 20);;
     }
 
     getCurrentState() {
