@@ -5,11 +5,11 @@ function Leaderboard() {
     leaderboardData.sort((a, b) => a.points - b.points);
 
     return (
-        <div className="bg-black text-white p-8 rounded-md">
+        <div className="bg-[rgba(255, 255, 255, 0.2)] text-white p-8 rounded-[16px] backdrop-blur-sm">
             <h1 className="text-2xl text-center my-4">
                 Leaderboard Results 🚀
             </h1>
-            <div className="overflow-y-scroll h-96">
+            <div className=" h-96">
                 {leaderboardData.map((el, index) => (
                     <Card
                         sno={index + 1}
