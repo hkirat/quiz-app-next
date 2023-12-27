@@ -1,8 +1,5 @@
 # React + Vite
+Install packages like tailwindcss react icons, react-router
+![image](https://github.com/mecskyverse/quiz-app-next/assets/91150257/117b9cb0-915d-47a7-8dba-50b24e5389f0)
+![image](https://github.com/mecskyverse/quiz-app-next/assets/91150257/25212843-e4f1-4f8f-9b88-e5499f57c231)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
