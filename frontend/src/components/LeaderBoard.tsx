@@ -57,9 +57,9 @@ type UserData = {
             className=" h-full w-full z-10 bg-gradient-to-b from-transparent via-transparent to-black fixed"
           ></div>
           LEADERBOARD
-          <div className="w-full h-1/3 flex justify-center items-center mt-5">
+          <div className="w-full h-1/3 flex justify-center items-center my-5">
             {usersData &&
-              usersData.slice(0, 3).map((data, index) => {
+              usersData.sort((a, b) => b.points - a.points).slice(0, 3).map((data, index) => {
                 return (
                   <div key={index}>
                     <img
@@ -77,7 +77,7 @@ type UserData = {
               })}
           </div>
           {usersData &&
-            usersData.map((data, index) => {
+            usersData.sort((a, b) => b.points - a.points).map((data, index) => {
               return (
                 <div
                   key={index}
@@ -85,7 +85,7 @@ type UserData = {
                     width: `${(data.points / highestPoints) * 100}%`,
                     backgroundColor: `rgba(255, 0, 0, ${data.points / 100})`,
                   }}
-                  className={`relative h-10 justify-end text-center w-full mx-0.5 mt-auto rounded-sm flex rounded-r-full hover:bg-blue-700 transition-all duration-1000 ease-in-out`}
+                  className={`relative mb-1 h-10 justify-end text-center w-full mx-0.5 mt-auto rounded-sm flex rounded-r-full hover:bg-blue-700 transition-all duration-1000 ease-in-out`}
                 >
                   <span className=" h-full flex items-center font-mono text-xl mr-auto">
                     {Math.round(data.points)} Points
