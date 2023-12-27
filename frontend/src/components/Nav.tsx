@@ -5,8 +5,8 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: "Leaderboard", href: "#" },
-  { name: "Pricing", href: "#" },
+  { name: "Leaderboard", href: "/leaderboard" },
+  { name: "Quiz", href: "/quiz" },
 ];
 
 export default function Nav() {
@@ -41,7 +41,7 @@ export default function Nav() {
             </button>
           </div>
         </div>
-        <a href="#" className="-m-1.5 p-1.5">
+        <a href="/" className="-m-1.5 p-1.5">
           <span className="sr-only">Realtime Quiz</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
