@@ -16,4 +16,4 @@
  - Leaderboard view - $25
     winners: {username: string, profilePicture?: string, points: number}[] => will be sorted
  - Join the course view - $10
- Stack - React components using tailwind
+ Stack - React components using tailwind 
