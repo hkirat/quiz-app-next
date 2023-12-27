@@ -2,7 +2,7 @@ import { leaderboardData } from "../data/leaderboardData";
 import Card from "./Card";
 
 function Leaderboard() {
-    leaderboardData.sort((a, b) => a.points - b.points);
+    leaderboardData.sort((a, b) => b.points - a.points);
 
     return (
         <div className="bg-opacity-20 bg-white backdrop-blur-5 border border-opacity-30 border-solid border-white dark:border-gray-800 dark:bg-gray-800 dark:bg-opacity-20 p-6 rounded-lg shadow-md">
