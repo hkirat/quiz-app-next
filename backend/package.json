@@ -1,0 +1,23 @@
+{
+  "name": "quiz-app",
+  "version": "1.0.0",
+  "description": "## Features",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hkirat/quiz-app-next.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hkirat/quiz-app-next/issues"
+  },
+  "homepage": "https://github.com/hkirat/quiz-app-next#readme",
+  "dependencies": {
+    "socket.io": "^4.7.2"
+  }
+}
