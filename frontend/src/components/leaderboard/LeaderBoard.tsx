@@ -30,32 +30,29 @@ const playersData: PlayersType[] = [
   },
 ];
 
-
-const colors = [
-    "#E63946",
-    "#A85751",
-    "#A8DADC",
-    "#457B9D",
-    "#1D3557"
-] 
+const colors = ["#E63946", "#A85751", "#A8DADC", "#457B9D", "#1D3557"];
 
 export const LeaderBoard = () => {
   const [players, setPlayers] = useState<PlayersType[]>([]);
 
   useEffect(() => {
     setPlayers(playersData);
-    console.log(players)
+    console.log(players);
   }, []);
   return (
-    <>
-    <section>
-      <h1 className="text-4xl">LeaderBoard</h1>
-    </section>
-    <section>
-        {   
-            players.map((player, i) => <PointBar key = {i} player={player} color={colors[i]} /> )
-        }
-    </section>
-    </>
+    <div className="w-3/5 h-screen m-auto flex items-center">
+      <section className="w-full">
+        <section>
+          <h1 className="text-6xl mb-4">LeaderBoard</h1>
+        </section>
+        <section className="flex justify-center items-center">
+          <section className="w-1/2 grid grid-flow-row">
+            {players.map((player, i) => (
+              <PointBar key={i} player={player} color={colors[i]} />
+            ))}
+          </section>
+        </section>
+      </section>
+    </div>
   );
 };
