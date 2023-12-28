@@ -8,7 +8,7 @@ type Props = {
 };
 
 export const PointBar = ({ player, color }: Props) => {
-  const pointbar = useRef(null);
+  const pointbar:  any = useRef(null);
   console.log(color);
   useEffect(() => {
     gsap.to(pointbar.current, {
