@@ -1,20 +1,25 @@
-import { useState } from 'react'
-import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { User } from './components/User';
-import { Admin } from './components/Admin';
+
+import { HomePage } from "./routes/HomePage";
+import { JoinQuiz } from "./routes/Join";
+import { CreateQuiz } from "./routes/CreateQuiz";
+import { DashBoard } from "./routes/Dashboard";
+import { QuizDetails } from "./routes/QuizDetails";
+import { PlayGround } from "./routes/PlayGround";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <BrowserRouter>
       <Routes>
-          <Route path="admin" element={<Admin />} />
-          <Route path="user" element={<User />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/join" element={<JoinQuiz />} />
+        <Route path="/create" element={<CreateQuiz />} />
+        <Route path="/dashboard" element={<DashBoard />} />
+        <Route path="/quiz/" element={<QuizDetails />} />
+        <Route path="/play" element={<PlayGround />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

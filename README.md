@@ -2,18 +2,27 @@
 
 ## Features
 
-- Admin should be allowed to add questions (MCQ, single answer)
-- Admin should be allowed to move to the next questions
-- Admin should be allowed to show the leaderboard to everyone
-- Users should be allowed to answer the questions
-- Users just need to poll the server for the next question, no need for it to be realtime
+- [X] Admin should be alble to create Quizes
+- [X] Admin should be allowed to add questions to quizes (MCQ, single answer)
+- [ ] Admin should be allowed to move to the next questions
+- [ ] Admin should be allowed to show the leaderboard to everyone
+- [X] Users should be allowed to answer the questions
+- [X] Make a Dashboard for admin, to edit the quies.
+- [X] Admin/User should be able to see the questions at same time.
 
-## Bounties for frontend $$
- - Simple View with title and answers - $25
-    title : string
-    choices: strings[]
-    image?: string
- - Leaderboard view - $25
-    winners: {username: string, profilePicture?: string, points: number}[] => will be sorted
- - Join the course view - $10
- Stack - React components using tailwind
+## Preview
+
+#### Home 
+![](images/preview/Home.png)
+#### Create Quest
+![](images/preview/createQuest.png)
+#### Join Room/Quest
+![](images/preview/JoinRoom.png)
+### Dashboard (Admin)
+![](images/preview/Dashboard.png)
+### Edit Quiz (Admin)
+![](images/preview/QuizEdit.png)
+#### Answer Questions
+![](images/preview/Quiz.png)
+#### Leader Board
+![](images/preview/LeaderBoard.png)
